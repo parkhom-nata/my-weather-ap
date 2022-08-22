@@ -16,7 +16,8 @@
   </head>
   
     <body>
-        <div class="container">
+      <div class="container">
+          <div class="weather-ap">
             <div class="col-4 city">
                 <form id="search-form">
                   <input
@@ -29,33 +30,44 @@
                   />
                   <input type="submit" class="button" value="Go" />
                 </form>
+            </div>
+          </div>
+
+         
                 <h1 id="city">Kyiv</h1>
                 <ul>
                 <li>Monday 11:29</li>
                 <li>Clear</li>
             </ul>
-              </div>      
-      
+              
+
+              <div class="container">
+                <div class="card today" style="width: 14rem;">
+                  <img src="img/cloud.png" class="main-icon" alt="cloud" />
+                  <div class="card-body">
+                    <p class="card-text" id="current-temperature">26<span>°<span></p>
+                    <span class="metrics"
+                      ><a href="#" id="C">°C</a> | <a href="#" id="F">°F</a></span
+                    >
+                  </div>
+                </div>
+              </div>
+
           <div class="container">
             <div class="data">
               <ul class = "other">
+              <li>Precipitation: 0%</li>
               <li>Humidity: <span id="humidity">62</span>%</li>
               <li>Wind: <span id="wind">3</span>km/h</li>
             </div>
           </div>
+            <small>
+              <a href="https://github.com/parkhom-nata/my-weather-ap" target="_blank">Open source code</a> by parkhom nata
+            </small>
+          </div>
 
             
-          <div class="container">
-            <div class="card today" style="width: 14rem;">
-              <img src="img/cloud.png" class="main-icon" alt="cloud" />
-              <div class="card-body">
-                <p class="card-text" id="current-temperature">26<span>°<span></p>
-                <span class="metrics"
-                  ><a href="#" id="C">°C</a> | <a href="#" id="F">°F</a></span
-                >
-              </div>
-            </div>
-          </div>
+
     <script src="src/app.js"></script>
 </body>
 </html>
