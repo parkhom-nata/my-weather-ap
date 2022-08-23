@@ -23,10 +23,13 @@ function displayTemperature(response){
     let humidityElement = document.querySelector("#humidity").innerHTML = response.data.main.humidity;
     let windElement = document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
     let dateElement = document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
+    let iconElement = document.querySelector("#main-icon");
+    iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 let apiKey = "2b5667a8237d1b01430707e2a1deb6dc";
-let city = "Kyiv"
+let city = "Bangkok"
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
