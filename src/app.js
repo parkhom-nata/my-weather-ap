@@ -15,9 +15,9 @@ return `${day} ${hours}:${minutes}`;
 
 
 function displayTemperature(response){
-    console.log(response.data);
     let temperatureElement = document.querySelector("#current-temperature");
-    temperatureElement.innerHTML = Math.round(response.data.main.temp);
+    celsiusTemperature = response.data.main.temp;
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
     let cityElement = document.querySelector("#city").innerHTML = response.data.name;
     let descriptionElement = document.querySelector("#description").innerHTML = response.data.weather[0].description;
     let humidityElement = document.querySelector("#humidity").innerHTML = response.data.main.humidity;
@@ -26,6 +26,7 @@ function displayTemperature(response){
     let iconElement = document.querySelector("#main-icon");
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     iconElement.setAttribute("alt", response.data.weather[0].description);
+    
 }
 
 function search(city) {
@@ -44,3 +45,23 @@ search("Bangkok");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+
+function celsiusTemperature(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#current-temperature");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  }
+  let celsius = document.querySelector("#C");
+  celsius.addEventListener("click", celsiusTemperature);
+  
+
+  function farenheitTemperature(event) {
+    event.preventDefault();
+    let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+    let temperatureElement = document.querySelector("#current-temperature");
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  }
+
+  let fahrenheit = document.querySelector("#F");
+  fahrenheit.addEventListener("click", farenheitTemperature);
