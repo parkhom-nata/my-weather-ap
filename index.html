@@ -18,7 +18,7 @@
     <body>
       <div class="container">
           <div class="weather-ap">
-            <div class="col-4 city">
+            
                 <form id="search-form">
                   <input
                     type="text"
@@ -26,12 +26,9 @@
                     id="city-input"
                     autocomplete="off"
                     autofocus="on"
-                    placeholder="Enter city"
                   />
-                  <input type="submit" class="button" value="Go" />
+                  <input type="submit" class="button" value="City" />
                 </form>
-            </div>
-          </div>
 
          
                 <h1 id="city">Kyiv</h1>
@@ -39,21 +36,21 @@
                 <li>Monday 11:29</li>
                 <li>Clear</li>
             </ul>
-              
+               
 
-              <div class="container">
-                <div class="card today" style="width: 14rem;">
-                  <img src="img/cloud.png" class="main-icon" alt="cloud" />
+              <div class="row">
+                <div class="col-6">
+                  <img src="img/cloud.png" width="150px" class="main-icon" alt="cloud" />
                   <div class="card-body">
-                    <p class="card-text" id="current-temperature">26<span>°<span></p>
-                    <span class="metrics"
-                      ><a href="#" id="C">°C</a> | <a href="#" id="F">°F</a></span
-                    >
+                    <p class="card-text" id="current-temperature">26
+                    <span class="metrics"><a href="#" id="C">°C | </a>  <a href="#" id="F">°F</a></span
+                    ></p>
                   </div>
                 </div>
-              </div>
+            
 
-          <div class="container">
+          <div class="row">
+            <div class="col-6">
             <div class="data">
               <ul class = "other">
               <li>Precipitation: 0%</li>
@@ -61,12 +58,13 @@
               <li>Wind: <span id="wind">3</span>km/h</li>
             </div>
           </div>
-            <small>
-              <a href="https://github.com/parkhom-nata/my-weather-ap" target="_blank">Open source code</a> by parkhom nata
-            </small>
-          </div>
+          </div>  
 
-            
+        <small>
+          <a href="https://github.com/parkhom-nata/my-weather-ap" target="_blank">Open source code</a> by parkhom nata
+        </small>
+      </div> 
+    </div>
 
     <script src="src/app.js"></script>
 </body>
