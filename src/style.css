@@ -15,7 +15,7 @@ li {
     list-style: none;
 }
 
-li::first-letter{
+li::first-letter {
   text-transform: capitalize;
 }
 
@@ -50,7 +50,9 @@ li::first-letter{
 }
 
 small {
-    margin: 0 30px 0;
+  color: #fff;
+  display: block;
+  margin-left: 500px;   
 }
 
 #search-form {
@@ -80,4 +82,17 @@ small {
     font-weight: 600;
     border: 1px solid #2973803a;
     background-color: #297380b1;
+  }
+
+  .weather-forecast {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .forecast-date {
+  font-size: 15px;
+  }
+  
+  .forecast-temperature {
+    font-size: 13px;
   }
