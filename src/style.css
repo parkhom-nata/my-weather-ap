@@ -52,7 +52,8 @@ li::first-letter {
 small {
   color: #fff;
   display: block;
-  margin-left: 500px;   
+  margin-left: 400px;
+  margin-top: -20px;
 }
 
 #search-form {
