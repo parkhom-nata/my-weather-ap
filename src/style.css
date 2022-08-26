@@ -7,7 +7,7 @@ background-color: #fff;
 margin: 30px auto;
 padding: 30px 30px 0;
 border: 1px solid #dadde1;
-max-width: 500px;
+max-width: 600px;
 border-radius: 6px;
 }
 
@@ -86,14 +86,19 @@ small {
   }
 
   .weather-forecast {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
   }
 
   .forecast-date {
-  font-size: 15px;
+  font-size: 17px;
   }
   
   .forecast-temperature {
-    font-size: 13px;
+    font-size: 15px;
+  }
+ 
+   
+  #forecast {
+    margin-top: -40px;;
   }
