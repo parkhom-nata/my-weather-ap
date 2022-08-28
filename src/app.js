@@ -31,9 +31,11 @@ if (index < 6) {
 forecastHTML = forecastHTML + `
 <div class="col-2">
   <div class="forecast-date">${formatDay(forecastDay.dt)}</div>
-  <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" 
-  alt="" 
-  width="50"/>
+  <img src="${changeWeatherIcon(forecastDay.weather[0].icon)}" 
+  alt="storm"
+  width="50"
+  id="card-weather-icon"/>
+
   <div class="forecast-temperature">
   <span class="forecast-temp-max">${Math.round(forecastDay.temp.max)}° / </span>
   <span class="forecast-temp-min">${Math.round(forecastDay.temp.min)}°</span>
@@ -44,6 +46,24 @@ forecastHTML = forecastHTML + `
 forecastHTML = forecastHTML + `</div>`;
 forecastElement.innerHTML = forecastHTML;
 };
+
+////
+function changeWeatherIcon(icon) {
+    iconNumber = icon.slice(0, 2);
+    let icons = {
+      "01": "img/clear-sky.png",
+      "02": "img/few-clouds.png",
+      "03": "img/scattered-clouds.png",
+      "04": "img/broken-clouds.png",
+      "09": "img/shower-rain.png",
+      10: "img/rain.png",
+      11: "img/thunderstorm.png",
+      13: "img/snow.png",
+      50: "img/mist.png",
+    };
+  
+    return icons[iconNumber];
+  }
 
 function getForecast(coordinates) {
 let apiKey = "2b5667a8237d1b01430707e2a1deb6dc";
@@ -60,10 +80,15 @@ function displayTemperature(response){
     let humidityElement = document.querySelector("#humidity").innerHTML = response.data.main.humidity;
     let windElement = document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
     let dateElement = document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
-    let iconElement = document.querySelector("#main-icon");
-    iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-    iconElement.setAttribute("alt", response.data.weather[0].description);
-    
+    ///let iconElement = document.querySelector("#main-icon");
+    ///iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    ///iconElement.setAttribute("alt", response.data.weather[0].description);
+    /////
+    document
+    .querySelector("#main-icon")
+    .setAttribute("src", `${changeWeatherIcon(response.data.weather[0].icon)}`);
+
+
     getForecast(response.data.coord);
 
 }
@@ -80,7 +105,7 @@ function handleSubmit(event) {
     search(cityInputElement.value);
 }
 
-search("Bangkok");
+search("Kyiv");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
