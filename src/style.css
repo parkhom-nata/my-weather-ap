@@ -38,7 +38,7 @@ li::first-letter {
     margin-left: 40px;
 }
 
-#C, #F {
+#C {
     text-decoration: none;
     font-size: 17px;
     font-weight: lighter;

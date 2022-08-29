@@ -122,16 +122,6 @@ function celsiusTemperature(event) {
   }
   let celsius = document.querySelector("#C");
   celsius.addEventListener("click", celsiusTemperature);
-  
 
-  function farenheitTemperature(event) {
-    event.preventDefault();
-    let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-    let temperatureElement = document.querySelector("#current-temperature");
-    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-  }
-
-  let fahrenheit = document.querySelector("#F");
-  fahrenheit.addEventListener("click", farenheitTemperature);
 
   
