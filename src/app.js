@@ -16,7 +16,7 @@ return `${day} ${hours}:${minutes}`;
 function formatDay(timestamp) {
 let date = new Date(timestamp * 1000);
 let day = date.getDay();
-let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 return days[day];
 }
 
@@ -32,36 +32,45 @@ forecastHTML = forecastHTML + `
 <div class="col-2">
   <div class="forecast-date">${formatDay(forecastDay.dt)}</div>
   <img src="${changeWeatherIcon(forecastDay.weather[0].icon)}" 
-  alt="storm"
   width="50"
-  id="card-weather-icon"/>
+  id="forecast-icon"/>
 
   <div class="forecast-temperature">
   <span class="forecast-temp-max">${Math.round(forecastDay.temp.max)}° / </span>
   <span class="forecast-temp-min">${Math.round(forecastDay.temp.min)}°</span>
   </div>
 </div>`;}
+console.log(response.data)
 });
 
 forecastHTML = forecastHTML + `</div>`;
 forecastElement.innerHTML = forecastHTML;
 };
 
-////
+
 function changeWeatherIcon(icon) {
-    iconNumber = icon.slice(0, 2);
+    iconNumber = icon.slice(0);
     let icons = {
-      "01": "img/clear-sky.png",
-      "02": "img/few-clouds.png",
-      "03": "img/scattered-clouds.png",
-      "04": "img/broken-clouds.png",
-      "09": "img/shower-rain.png",
-      10: "img/rain.png",
-      11: "img/thunderstorm.png",
-      13: "img/snow.png",
-      50: "img/mist.png",
+      "01d": "img/clear-sky.png",
+      "01n": "img/clear-sky-night.png",
+      "02d": "img/few-clouds.png",
+      "02n": "img/few-clouds-night.png",
+      "03d": "img/scattered-clouds.png",
+      "03n": "img/few-clouds-night.png",
+      "04d": "img/broken-clouds.png",
+      "04n": "img/broken-clouds.png",
+      "09d": "img/shower-rain.png",
+      "09n": "img/shower-rain-night.png",
+      "10d": "img/rain.png",
+      "10n": "img/rain-night.png",
+      "11d": "img/thunderstorm.png",
+      "11n": "img/thunderstorm.png",
+      "13d": "img/snow.png",
+      "13n": "img/snow.png",
+      "50d": "img/mist.png",
+      "50n": "img/mist.png",
     };
-  
+    
     return icons[iconNumber];
   }
 
@@ -80,12 +89,7 @@ function displayTemperature(response){
     let humidityElement = document.querySelector("#humidity").innerHTML = response.data.main.humidity;
     let windElement = document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
     let dateElement = document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
-    ///let iconElement = document.querySelector("#main-icon");
-    ///iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-    ///iconElement.setAttribute("alt", response.data.weather[0].description);
-    /////
-    document
-    .querySelector("#main-icon")
+    document.querySelector("#main-icon")
     .setAttribute("src", `${changeWeatherIcon(response.data.weather[0].icon)}`);
 
 
