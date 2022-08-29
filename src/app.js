@@ -32,7 +32,7 @@ forecastHTML = forecastHTML + `
 <div class="col-2">
   <div class="forecast-date">${formatDay(forecastDay.dt)}</div>
   <img src="${changeWeatherIcon(forecastDay.weather[0].icon)}" 
-  width="50"
+  width="45"
   id="forecast-icon"/>
 
   <div class="forecast-temperature">
@@ -40,7 +40,6 @@ forecastHTML = forecastHTML + `
   <span class="forecast-temp-min">${Math.round(forecastDay.temp.min)}°</span>
   </div>
 </div>`;}
-console.log(response.data)
 });
 
 forecastHTML = forecastHTML + `</div>`;
@@ -49,7 +48,7 @@ forecastElement.innerHTML = forecastHTML;
 
 
 function changeWeatherIcon(icon) {
-    iconNumber = icon.slice(0);
+    iconNumber = icon.slice();
     let icons = {
       "01d": "img/clear-sky.png",
       "01n": "img/clear-sky-night.png",
